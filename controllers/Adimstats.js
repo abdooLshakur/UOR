@@ -1,6 +1,5 @@
 // routes/adminRoutes.js
 const express = require("express");
-const router = express.Router();
 const Donation = require("../models/DonationModal");
 const Cause = require("../models/CauseModal");
 const User = require("../models/UserModel");

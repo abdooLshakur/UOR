@@ -6,7 +6,7 @@ const {
   updateCause,
   deleteCause,
 } = require("../controllers/CauseController.js");
-const { protect, isAdmin } = require("../middleware/auth.js");
+const { protect, isAdmin } = require("../middleware/Auth.js");
 const upload = require("../middleware/Fileuploads.js")
 const router = express.Router();
 
