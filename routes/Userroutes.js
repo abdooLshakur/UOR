@@ -1,4 +1,3 @@
-// routes/userRoutes.js
 const  express = require("express");
 const  { registerUser, loginUser, getUserProfile, getDonorProfile, logoutUser, getAllDonors, updateDonorProfile, contactUs } = require( "../controllers/UserController.js");
 const  { protect, isAdmin } = require( "../middleware/Auth.js");
