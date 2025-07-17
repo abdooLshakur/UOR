@@ -64,14 +64,14 @@ const loginUser = async (req, res) => {
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
-      ...(isProduction && { domain: ".halalmatchmakings.com" }),
+      ...(isProduction && { domain: "https://uor.onrender.com" }),
     };
     const cookieOptionsUser = {
       httpOnly: false,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
-      ...(isProduction && { domain: ".halalmatchmakings.com" }),
+      ...(isProduction && { domain: "https://uor.onrender.com" }),
     };
 
     res
@@ -100,7 +100,7 @@ const logoutUser = (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: "None",
-    domain: ".halalmatchmakings.com",
+    domain: "https://uor.onrender.com",
     path: "/",
   });
 
@@ -108,7 +108,7 @@ const logoutUser = (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: "None",
-    domain: ".halalmatchmakings.com",
+    domain: "https://uor.onrender.com",
     path: "/",
   });
 
