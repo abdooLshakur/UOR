@@ -90,14 +90,14 @@ const loginUser = async (req, res) => {
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
-      ...(isProduction && { domain: "https://uor.onrender.com" }),
+      ...(isProduction && { domain: "ummaofrasulullahcharityfoundation.com" }),
     };
     const cookieOptionsUser = {
       httpOnly: false,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
-      ...(isProduction && { domain: "https://uor.onrender.com" }),
+      ...(isProduction && { domain: "ummaofrasulullahcharityfoundation.com" }),
     };
 
     res
@@ -126,7 +126,7 @@ const logoutUser = (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: "None",
-    domain: "https://uor.onrender.com",
+    domain: "ummaofrasulullahcharityfoundation.com",
     path: "/",
   });
 
