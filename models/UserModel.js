@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   phoneNumber: { type: String },
   passwordHash: { type: String, required: true },
-  role: { type: String, enum: ["donor", "admin"], default: "donor" },
+  role: { type: String, enum: ["donor", "Admin"], default: "donor" },
   isVerified: { type: Boolean, default: false },
 }, { timestamps: true });
 
