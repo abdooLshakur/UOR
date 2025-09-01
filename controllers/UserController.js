@@ -85,7 +85,7 @@ const loginUser = async (req, res) => {
 
     const isProduction = process.env.NODE_ENV === "production";
     const cookieOptionsToken = {
-      httpOnly: false,
+      httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
