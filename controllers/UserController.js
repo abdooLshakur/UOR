@@ -168,6 +168,7 @@ const updateDonorProfile = async (req, res) => {
     user.fullName = name || user.fullName;
     user.email = email || user.email;
     user.phoneNumber = phone || user.phoneNumber;
+    user.location = location || user.location;
 
     if (password) {
       const salt = await bcrypt.genSalt(10);
