@@ -33,7 +33,7 @@ const registerUser = async (req, res) => {
 
 const registerAdmin = async (req, res) => {
   try {
-    const { fullName, email, phoneNumber, password } = req.body;
+    const { fullName, email, phoneNumber, password, gender, age } = req.body;
 
     const existing = await User.findOne({ email });
     if (existing) {
@@ -47,7 +47,6 @@ const registerAdmin = async (req, res) => {
       phoneNumber,
       age,
       gender,
-      location,
       passwordHash: hashed,
       role: "Admin",
     });
