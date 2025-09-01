@@ -16,7 +16,7 @@ router.get("/:id", getCauseById);
 
 // Admin Routes
 router.post("/add", protect, isAdmin, upload.array('images', 20), createCause);
-router.patch("/:id", protect, isAdmin, upload.array('images', 20), updateCause);
+router.put("/:id", protect, isAdmin, upload.array('images', 20), updateCause);
 router.delete("/:id", protect, isAdmin, deleteCause);
 
 module.exports = router;
