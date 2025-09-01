@@ -20,20 +20,26 @@ if (!dbUrl || !SECRET_KEY) {
 }
 
 app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true,              
+  origin: [
+    "http://localhost:3000",
+    "https://ummaofrasulullahcharityfoundation.com"
+  ],
+  credentials: true,
 }));
 
 
+
 app.options('*', cors({
-  origin: process.env.CLIENT_URL,
+  origin: [
+    "http://localhost:3000",
+    "https://ummaofrasulullahcharityfoundation.com"
+  ],
   credentials: true,
 }));
 
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // Database connection
 mongoose.connect(dbUrl)

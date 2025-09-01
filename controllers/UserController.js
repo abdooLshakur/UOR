@@ -89,14 +89,14 @@ const loginUser = async (req, res) => {
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
-      ...(isProduction && { domain: "ummaofrasulullahcharityfoundation.com" }),
+      ...(isProduction && { domain: ".ummaofrasulullahcharityfoundation.com" }),
     };
     const cookieOptionsUser = {
       httpOnly: false,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
       maxAge: 2 * 24 * 60 * 60 * 1000,
-      ...(isProduction && { domain: "ummaofrasulullahcharityfoundation.com" }),
+      ...(isProduction && { domain: ".ummaofrasulullahcharityfoundation.com" }),
     };
 
     res
