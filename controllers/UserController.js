@@ -156,23 +156,23 @@ const getDonorProfile = async (req, res) => {
   }
 };
 
-// Update Donor Profile
+
 const updateDonorProfile = async (req, res) => {
   try {
     const userId = req.user.id; // from auth middleware
-    const { name, email, phoneNumber, password } = req.body;
+    const { fullName, email, phoneNumber, password, location } = req.body;
 
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    user.fullName = name || user.fullName;
+    user.fullName = fullName || user.fullName;
     user.email = email || user.email;
     user.phoneNumber = phoneNumber || user.phoneNumber;
     user.location = location || user.location;
 
     if (password) {
       const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(password, salt);
+      user.passwordHash = await bcrypt.hash(password, salt); // <-- fix: use `passwordHash`
     }
 
     await user.save();
@@ -183,6 +183,7 @@ const updateDonorProfile = async (req, res) => {
     res.status(500).json({ message: "Failed to update profile" });
   }
 };
+
 
 const getAllDonors = async (req, res) => {
   try {
