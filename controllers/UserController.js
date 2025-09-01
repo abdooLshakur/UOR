@@ -46,6 +46,7 @@ const registerAdmin = async (req, res) => {
       email,
       phoneNumber,
       age,
+      gender,
       location,
       passwordHash: hashed,
       role: "Admin",

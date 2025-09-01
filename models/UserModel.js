@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   age:{type: String, },
   location:{type:String},
   phoneNumber: { type: String },
+  gender: { type: String },
   passwordHash: { type: String, required: true },
   role: { type: String, enum: ["donor", "Admin"], default: "donor" },
   isVerified: { type: Boolean, default: false },
