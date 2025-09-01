@@ -3,7 +3,7 @@ const Cause = require("../models/CauseModal.js");
 const createCause = async (req, res) => {
   try {
     const { title, description, goalAmount, location } = req.body;
-    const image = req.file?.filename;
+    const images = req.files?.map(file => file.path || file.filename) || []; // handles cloudinary or local
 
     if (!title || !location) {
       return res.status(400).json({ message: "Title and location are required." });
@@ -14,7 +14,7 @@ const createCause = async (req, res) => {
       description,
       goalAmount,
       location,
-      image
+      image: images,   // ✅ Save array
     });
 
     await newCause.save();
@@ -58,7 +58,7 @@ const updateCause = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, goalAmount, status, location } = req.body;
-    const image = req.file?.filename;
+    const newImages = req.files?.map(file => file.path || file.filename) || [];
 
     const updated = await Cause.findByIdAndUpdate(
       id,
@@ -67,8 +67,8 @@ const updateCause = async (req, res) => {
         ...(description && { description }),
         ...(goalAmount && { goalAmount }),
         ...(status && { status }),
-        ...(location && { location }), // ✅ Add this
-        ...(image && { image }),
+        ...(location && { location }),
+        ...(newImages.length > 0 && { $push: { image: { $each: newImages } } }), // append new ones
       },
       { new: true }
     );

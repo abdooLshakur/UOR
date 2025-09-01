@@ -156,7 +156,6 @@ const getDonorProfile = async (req, res) => {
   }
 };
 
-
 const updateDonorProfile = async (req, res) => {
   try {
     const userId = req.user.id; // from auth middleware
@@ -183,7 +182,6 @@ const updateDonorProfile = async (req, res) => {
     res.status(500).json({ message: "Failed to update profile" });
   }
 };
-
 
 const getAllDonors = async (req, res) => {
   try {
@@ -338,7 +336,6 @@ const contactUs = async (req, res) => {
     return res.status(500).json({ message: "Internal server error." });
   }
 };
-
 
 
 module.exports = {
