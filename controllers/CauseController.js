@@ -3,11 +3,20 @@ const Cause = require("../models/CauseModal.js");
 const createCause = async (req, res) => {
   try {
     const { title, description, goalAmount, location } = req.body;
-    const images = req.files?.map(file => file.path || file.filename) || []; // handles cloudinary or local
 
     if (!title || !location) {
       return res.status(400).json({ message: "Title and location are required." });
     }
+
+    const images = req.files; // Expecting multiple files
+    if (!files || files.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "At least one image is required",
+      });
+    }
+
+    const gallery_imgs = files.map(file => file.path);
 
     const newCause = new Cause({
       title,
