@@ -19,8 +19,7 @@ const createCause = async (req, res) => {
 
     // Extract file paths/urls
     const imagePaths = files.map(file => file.path || file.filename);
-    console.log("Multer files:", req.files);
-    console.log("Body fields:", req.body);
+
 
     const newCause = new Cause({
       title,
