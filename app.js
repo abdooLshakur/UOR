@@ -32,7 +32,7 @@ app.use(cors({
 app.options('*', cors({
   origin: [
     "http://localhost:3000",
-    "www.https://ummaofrasulullahcharityfoundation.com"
+    "www.https://ummaofrasulullahcharityfoundation.com",
     "https://ummaofrasulullahcharityfoundation.com"
   ],
   credentials: true,
