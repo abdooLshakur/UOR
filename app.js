@@ -22,21 +22,14 @@ if (!dbUrl || !SECRET_KEY) {
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://ummaofrasulullahcharityfoundation.com"
+    "https://ummaofrasulullahcharityfoundation.com",
+    "https://www.ummaofrasulullahcharityfoundation.com",
+    "https://api.ummaofrasulullahcharityfoundation.com"  
   ],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true,
 }));
-
-
-
-app.options('*', cors({
-  origin: [
-    "http://localhost:3000",
-    "www.https://ummaofrasulullahcharityfoundation.com",
-    "https://ummaofrasulullahcharityfoundation.com"
-  ],
-  credentials: true,
-}));
+app.options('*', cors());
 
 app.use(cookieParser());
 app.use(express.json());
